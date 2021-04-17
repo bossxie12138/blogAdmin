@@ -1,0 +1,172 @@
+.trigger,
+.screen {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+  &:hover {
+    color: #722ed1;
+  }
+}
+
+.logo {
+  height: 64px;
+  line-height: 64px;
+  font-size: 1.1rem;
+  font-family: KaiTi;
+  text-align: center;
+  color: #fff;
+}
+.wrap-content {
+  height: calc(100vh - 64px);
+  overflow: auto;
+}
+.content {
+  background: #fff;
+  padding: 20px;
+  margin: 16px;
+}
+.msg {
+  position: absolute;
+  top: -2px;
+  right: 18rem;
+  cursor: pointer;
+}
+.switch-color {
+  position: absolute;
+  top: -2px;
+  left: 25rem;
+  cursor: pointer;
+  .ant-switch {
+    box-shadow: none;
+  }
+}
+.deep-color {
+  background-color: #657798 !important;
+  .ant-menu {
+    background-color: #657798 !important;
+    .ant-menu-item-selected {
+      background-color: rgba(126, 225, 63, .2) !important;
+    }
+  }
+}
+.user {
+  padding: 0 24px;
+  position: absolute;
+  top: -2px;
+  cursor: pointer;
+  right: 1rem;
+  .ant-avatar {
+    margin-top: -3.5px;
+  }
+  &:hover .arrow-icon {
+    transform: rotate(180deg);
+    transition: all .5s ease;
+  }
+  .uname {
+    font-family: KaiTi;
+    color: #722ed1;
+    margin-left: .2rem;
+  }
+  .arrow-icon {
+    color: #722ed1;
+    margin-left: .5rem;
+    font-size: .8rem;
+  }
+}
+.ant-dropdown {
+  min-width: 5rem !important;
+}
+.ant-dropdown-menu{
+  padding: 0;
+  width: 5rem;
+  .ant-dropdown-menu-item {
+    text-align: center;
+    color: #722ed1;
+    font-size: .8rem;
+    &:hover {
+      background-color: #722ed1;
+      color: #fff;
+    }
+  }
+}
+.ant-drawer {
+  .ant-drawer-header {
+    background-color: black;
+    border-bottom-color: #722ed1;
+    .ant-drawer-title {
+      color: #fff;
+    }
+  }
+  .ant-drawer-body {
+    padding: 0;
+    padding-top: 1rem;
+  }
+  .ant-list {
+    border: 0;
+  }
+  .ant-list-item {
+    position: relative;
+    margin-bottom: 1rem;
+    border-bottom: none;
+    .user-group {
+      position: absolute;
+      left: 18%;
+      top: 10%;
+      .uname {
+        font-size: 1rem;
+      }
+      .user-msg {
+        width: 164px;
+        text-overflow:ellipsis;
+      }
+    }
+    .date {
+      position: absolute;
+      top: 12%;
+      right: 6%;
+    }
+  }
+  .current-msg {
+    text-align: left;
+    position: relative;
+    .umsg {
+      position: absolute;
+      top: .4rem;
+      left: 2.2rem;
+    }
+  }
+  .send-msg {
+    position: absolute;
+    bottom: 0;
+    padding: .2rem;
+    width: 100%;
+    height: 40%;
+    .ant-input {
+      height: 87%;
+      border-color: #722ed1;
+      box-shadow: none;
+      border-radius: 8px;
+    }
+    .ant-btn {
+      margin-left: 16rem;
+      color: #722ed1;
+    }
+  }
+  .reply-msg {
+    position: relative;
+    width: 100%;
+    margin-top: 3rem;
+    text-align: right;
+    .content {
+      padding: 0;
+      position: absolute;
+      right: 2rem;
+      top: -.6rem;
+    }
+    .ant-avatar {
+      margin-right: .5rem;
+    }
+  }
+}
