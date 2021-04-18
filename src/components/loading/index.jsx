@@ -5,7 +5,7 @@ import './index.less'
 export default function MyLoading() {
   return (
     <div className="loading">
-      <Spin size="large" />
+      <Spin />
     </div>
   )
 }

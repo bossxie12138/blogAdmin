@@ -30,6 +30,8 @@ export default function UserInfo() {
   const userMsg = useSelector(state => state.userReducer.userInfo)
 
   const history = useHistory()
+
+  const [form] = Form.useForm()
  
   const onFinish = values => {
     if (userMsg.role !== '001') {
@@ -38,6 +40,8 @@ export default function UserInfo() {
     }
     if (values.password===undefined) {
       dispatch(editUserAction(values))
+      form.resetFields()
+      message.success('修改成功！')
     }else {
       let jwtConfig = {
         ...values,
@@ -69,6 +73,7 @@ export default function UserInfo() {
           {...layout}
           name="basic"
           onFinish={onFinish}
+          form={form}
           onFinishFailed={onFinishFailed}
         >
           <Form.Item label="昵称" name="nickname">
