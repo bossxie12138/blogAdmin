@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 import App from './App'
@@ -12,8 +12,8 @@ import reportWebVitals from './reportWebVitals'
 import { LOGIN_ADMIN } from './redux/actionTypes'
 import './assets/css/style.less'
 
-if (localStorage.jwtToken) {
-  store.dispatch({ data: jwtDecode(localStorage.jwtToken), type: LOGIN_ADMIN })
+if (localStorage.adminToken) {
+  store.dispatch({ data: jwtDecode(localStorage.adminToken), type: LOGIN_ADMIN })
 }
 
 ReactDOM.render(

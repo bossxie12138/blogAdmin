@@ -3,7 +3,6 @@ const {
   fixBabelImports,
   addLessLoader
  } = require('customize-cra')
- // modifyVars
 
  module.exports = override(
    fixBabelImports('import', {
@@ -13,7 +12,6 @@ const {
    }),
    addLessLoader({
      javascriptEnabled: true,
-     // modifyVars
      cssModules: {
        localIndentName: "[path][name]-[local]-[hash:5]"
      },

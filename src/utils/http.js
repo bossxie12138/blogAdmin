@@ -3,13 +3,13 @@ import qs from 'qs'
 
 // 配置请求地址
 if (process.env.NODE_ENV === 'production') {
-  axios.defaults.baseURL = 'http://www.xxx.cn'
+  axios.defaults.baseURL = 'https://www.itxlb.cn'
 } else {
   axios.defaults.baseURL = '/api'
 }
 
 // 配置超时时间和跨域携带凭证
-axios.defaults.timeout = 10000
+axios.defaults.timeout = 20000
 axios.defaults.withCredentials = true
 
 // 设置请求数据的格式
@@ -18,7 +18,7 @@ axios.defaults.transformRequest = data => qs.stringify(data)
 
 // 请求拦截器
 axios.interceptors.request.use(config => {
-  let token = localStorage.getItem('jwtToken')
+  let token = localStorage.getItem('adminToken')
   token && (config.headers.Authorization = token)
   return config
 }, error => Promise.reject(error))

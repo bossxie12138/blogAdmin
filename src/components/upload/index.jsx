@@ -27,7 +27,7 @@ class PhotoUpload extends Component {
         email: info.email,
         password: info.password
       }, config.jwtSecret)
-      localStorage.setItem('jwtToken', token)
+      localStorage.setItem('adminToken', token)
     }
   }
 
@@ -48,12 +48,12 @@ class PhotoUpload extends Component {
 
   render() {
     const { fileList } = this.state
-    let {key} = jwtDecode(localStorage.getItem('jwtToken'))
+    let {key} = jwtDecode(localStorage.getItem('adminToken'))
     return (
       <ImgCrop rotate>
         <Upload
           maxCount={1}
-          action="/api/admin/upload"
+          action="/admin/upload"
           listType="picture-card"
           fileList={fileList}
           data={{key}}

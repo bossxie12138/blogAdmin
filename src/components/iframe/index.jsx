@@ -94,7 +94,7 @@ export default function MyLayout(props) {
   }
 
   const exit = () => {
-    localStorage.removeItem('jwtToken')
+    localStorage.removeItem('adminToken')
     dispatch(clearUser())
     history.push('/login')
   }

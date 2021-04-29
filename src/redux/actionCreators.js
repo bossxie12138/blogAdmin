@@ -162,8 +162,8 @@ export const getCount = () => {
         commentArr.push(item.commentList)
       })
     }
-    let like = likeArr.reduce((pre,next) => pre + next)
-    let look = lookArr.reduce((pre,next) => pre + next)
+    let like = likeArr.reduce((pre,next) => pre + next, 0)
+    let look = lookArr.reduce((pre,next) => pre + next, 0)
     let newCommentArr = commentArr.filter(item => item !== null)
     .map(item => item.split('|')).flat(Infinity)
     .map(item => JSON.parse(item))
@@ -175,7 +175,6 @@ export const getCount = () => {
       msg:msgs.length
     }
     dispatch({ data: previewData, type: GET_COUNT })
-    // console.log(`点赞数：${like};浏览数：${look};评论数：${newCommentArr.length};用户数：${users.length};留言数：${msgs.length}`);
   }
 }
 
@@ -192,7 +191,7 @@ export const login = value => {
   return async dispatch => {
     let result = await adminLogin(value)
     if (result.token) {
-      localStorage.setItem('jwtToken', result.token)
+      localStorage.setItem('adminToken', result.token)
       let userInfo = jwtDecode(result.token)
       dispatch({ data: userInfo, type: LOGIN_ADMIN })
       message.success('登录成功！')
@@ -206,16 +205,17 @@ export const clearUser = () => ({ type: CLEAR_LOGIN })
 export const editUserAction = value => {
   return async dispatch => {
     let { data } = await editUser(value)
+    const { key, username, role, nickname, avatar, email, password } = data[0]
     const token = jwt.sign({
-      key: data[0].key,
-      username: data[0].username,
-      role: data[0].role,
-      nickname: data[0].nickname,
-      avatar: data[0].avatar,
-      email: data[0].email,
-      password: data[0].password
+      key,
+      username,
+      role,
+      nickname,
+      avatar,
+      email,
+      password
     }, config.jwtSecret)
-    localStorage.setItem('jwtToken', token)
+    localStorage.setItem('adminToken', token)
     dispatch({ data: data[0], type: EDIT_USER })
   }
 }
